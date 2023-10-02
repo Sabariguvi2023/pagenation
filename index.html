@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Pagenation</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="pagination">
+            <button class="btn1" onclick="backbtn()">Prew</button>
+            <ul>
+                <li class="link active" value="1" onclick="activeLink()">1</li>
+                <li class="link" value="2" onclick="activeLink()">2</li>
+                <li class="link" value="3" onclick="activeLink()">3</li>
+                <li class="link" value="4" onclick="activeLink()">4</li>
+                <li class="link" value="5" onclick="activeLink()">5</li>
+            </ul>
+            <button class="btn2" onclick="nextbtn()">Next</button>
+
+        </div>
+
+
+    </div>
+    <script>
+        let value = document.getElementsByClassName("link")
+
+        let current = 1;
+
+        function activeLink(){
+            for(l of value){
+                l.classList.remove("active");
+
+    }
+    event.target.classList.add("active");
+    current =event.target.value;
+}
+function backbtn(){
+    if(current > 1){
+        for(l of value){
+                l.classList.remove("active");
+
+    }
+    current--;
+    value[current-1].classList.add("active");
+
+    }
+}
+function nextbtn(){
+    if(current < 5){
+        for(l of value){
+             l.classList.remove("active");
+
+    }
+    current++;
+    value[current-1].classList.add("active");
+
+    }
+}
+ 
+    </script>
+    
+</body>
+</html>
